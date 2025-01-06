@@ -1,0 +1,31 @@
+.container{
+    width:500px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.container h1{
+    text-align: center;
+}
+
+.item{
+    margin-top:20px;
+}
+
+.item label{
+    display:inline-block;
+    width: 70px;
+}
+
+.item label.gender{
+    width:20px;
+}
+
+.item input[type="text"],
+.item input[type="password"],
+.item input[type="submit"]
+{
+    width:420px;
+    height:40px;
+}
+

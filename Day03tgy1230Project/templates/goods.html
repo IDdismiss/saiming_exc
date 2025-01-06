@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/goods.css">
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <hr>
+    <div>
+        <img src="{{dict['src']}}" alt="no pic">
+    </div>
+    <div>{{dict["title"]}}</div>
+    <div>{{dict["price"]}}</div>
+    <hr>
+    <div class="container">
+        {% for item in list %}
+        <div class="item">
+            <div class="delete">
+                <a href="#">x</a>
+            </div>
+            <div>
+                <img src="{{item['src']}}" alt="">
+            </div>
+            <div class="content">
+                <div class="num">{{item["id"]}}</div>
+                <div class="title">{{item["title"]}}</div>
+                <div class="price">￥{{item["price"]}}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

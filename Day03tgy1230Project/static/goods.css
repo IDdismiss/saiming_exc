@@ -1,0 +1,33 @@
+.container{
+
+    width:45%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:space-between;
+}
+
+.container .title{
+    text-align:center;
+    font-family:"Arial";
+    font-size: 30px;
+}
+
+.container .price{
+    text-align:left;
+    font-size: 40px;
+    margin-top: 40px;
+    color:red;
+}
+
+.item{
+    position: relative;
+    padding: 10px;
+    background: #e9e9e9;
+    border-radius: 10px;
+}
+
+.item .delete{
+    position: absolute;
+    right: 16px;
+    font-size: 25px;
+}

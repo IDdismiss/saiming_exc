@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="/static/users/register.css">
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+    <div class="container">
+        <h1>用户注册</h1>
+        <div id="message">
+            {% for message in get_flashed_messages() %}
+            <div>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        <form action="/doregister" method="post">
+            <div class="item">
+                <label for="">用户名*</label>
+                <input type="text" placeholder="请输入用户名" name="username">
+            </div>
+            <div class="item">
+                <label for="">密码*</label>
+                <input type="password" placeholder="请输入密码" name="password">
+            </div>
+            <div class="item">
+                <label for="">电话号码</label>
+                <input type="text" placeholder="请输入电话号码" name="tel">
+            </div>
+            <div class="item">
+                <label for="" class="gender">男</label>
+                <input type="radio" name="gender" value="男" checked>
+                <label for="" class="gender">女</label>
+                <input type="radio" name="gender" value="女">
+            </div>
+            <div class="item">
+                <label for=""></label>
+                <select name="city" id="">
+                    <option value="">请选择籍贯</option>
+                    <option value="天津">天津</option>
+                    <option value="安徽">安徽</option>
+                    <option value="南阳">南阳</option>
+                    <option value="沧州">沧州</option>
+                    <option value="徐州">徐州</option>
+                    <option value="南京">南京</option>
+                </select>
+            </div>
+            <div class="item">
+                <label for=""></label>
+                <input type="submit" value="用户注册">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+<script src="/static/base.js"></script>

@@ -1,0 +1,20 @@
+.contain{
+    width:70%;
+    margin: 0 auto;
+}
+
+.show{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    align-items: center;
+    padding-left: 50px
+}
+
+img{
+width: 300px;
+}
+
+.exp{
+    text-align: center;
+}

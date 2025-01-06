@@ -1,0 +1,58 @@
+body{
+    background-color:pink;
+    background-image:url(/static/images/banner.jpg);
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.header{
+    height:66px;
+    width:100%;
+    position:fixed;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+    left:0px;
+    right:0px;
+}
+
+.header:hover{
+    background-color: white;
+}
+
+.header a{
+    color:white;
+    text-decoration:none;
+
+}
+
+.container{
+    width:1200px;
+    margin:0 auto;
+    height: 66px;
+    display: flex;
+    justify-content:space-between;
+    line-height: 66px;
+}
+
+.login{
+    background-color: #ef080d;
+    width: 120px;
+    height: 66px;
+    text-align: center;
+    color:white;
+}
+
+.main{
+    width:1200px;
+    height:100px;
+    position:fixed;
+    margin:auto;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 50px;
+    color:white;
+    font-weight:700px;
+}
