@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from flask import Blueprint, render_template, request, redirect, flash, json, session
 import db
 
@@ -74,9 +76,13 @@ def logout():
 
 
 # 用户列表
-@users_bp.route("/userlist")
-def userlist():
+@users_bp.route("/userslist")
+def userslist():
     # 获取所有用户的信息
-
+    sql = """
+        select * from users where is_actived=1;
+    """
+    users = db.query_data(sql)
+    pprint(users)
     # 返回一个页面并传值
-    return render_template("userslists.html")
+    return render_template("userslist.html", users=users)

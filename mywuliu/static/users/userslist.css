@@ -1,0 +1,34 @@
+.container{
+    width:1200px;
+    margin:0 auto;
+}
+
+.header{
+    height:100px;
+    display:flex;
+    padding-left:50px;
+    padding-right:50px;
+    justify-content:space-between
+}
+
+.search [type="text"]
+{
+    width:200px;
+    height:30px;
+}
+
+.search [type="submit"]
+{
+    width:80px;
+    height:35px
+}
+
+.main .item{
+    display:flex;
+    justify-content:space-between;
+}
+
+.main .item div{
+    margin-bottom:20px;
+    width: 200px;
+}
