@@ -16,7 +16,7 @@
             </div>
             {% endfor %}
         </div>
-        <form action="/doregister" method="post">
+        <form action="/doregister" method="post" enctype="multipart/form-data">
             <div class="item">
                 <label for="">用户名*</label>
                 <input type="text" placeholder="请输入用户名" name="username">
@@ -38,14 +38,20 @@
             <div class="item">
                 <label for=""></label>
                 <select name="city" id="">
-                    <option value="">请选择籍贯</option>
+                    <option value="">请选择所在地</option>
                     <option value="天津">天津</option>
                     <option value="安徽">安徽</option>
                     <option value="南阳">南阳</option>
                     <option value="沧州">沧州</option>
                     <option value="徐州">徐州</option>
                     <option value="南京">南京</option>
+                    <option value="福建">福建</option>
                 </select>
+            </div>
+            <div class="item">
+                <label for="">上传头像</label>
+                <input type="file" name="file" accept="image/png, image/jpeg">
+                <span>[限png, jpg格式]</span>
             </div>
             <div class="item">
                 <label for=""></label>

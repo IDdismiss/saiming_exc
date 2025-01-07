@@ -23,6 +23,11 @@
     height:35px
 }
 
+.search form{
+    display: flex;
+    justify-content: end;
+}
+
 .main .item{
     display:flex;
     justify-content:space-between;
@@ -30,5 +35,5 @@
 
 .main .item div{
     margin-bottom:20px;
-    width: 200px;
+    width: 150px;
 }

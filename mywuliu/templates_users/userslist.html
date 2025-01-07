@@ -13,8 +13,8 @@
                 <a href="/register">新建用户</a>
             </div>
             <div class="search">
-                <form action="">
-                    <input type="text" placeholder="请输入查询的用户姓名">
+                <form action="/search" method="POST">
+                    <input type="text" placeholder="请输入查询的用户姓名" name="username">
                     <input type="submit" value="查询">
                 </form>
             </div>
@@ -29,19 +29,25 @@
                 <div>角色</div>
                 <div>操作</div>
             </div>
+            {% for item in users %}
             <div class="item">
-                <div>1</div>
-                <div>admin</div>
-                <div>男</div>
-                <div>18966668888</div>
-                <div>天津</div>
-                <div>管理员</div>
+                <div>{{item["id"]}}</div>
+                <div>{{item["username"]}}</div>
+                <div>{{item["gender"]}}</div>
+                <div>{{item["tel"]}}</div>
+                <div>{{item["city"]}}</div>
+                {% if item["role"] == 1 %}
+                    <div>管理员</div>
+                {% elif item["role"] == 2 %}
+                    <div>用户</div>
+                {% endif %}
                 <div>
                     <a href="#">查看</a>
                     <a href="#">编辑</a>
                     <a href="#">删除</a>
                 </div>
             </div>
+            {% endfor %}
         </div>
 
 
