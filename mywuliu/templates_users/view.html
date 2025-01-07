@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="/static/users/view.css">
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+    {% for item in user %}
+    <div class="container">
+        <h1>个人信息</h1>
+        <div class="avator">
+            <img src="{{item['avator']}}" alt="">
+        </div>
+        <div class="item">
+            <span>用户名</span>
+            <span>{{item["username"]}}</span>
+        </div>
+        <div class="item">
+            <span>性别</span>
+            <span>{{item["gender"]}}</span>
+        </div>
+        <div class="item">
+            <span>联系方式</span>
+            <span>{{item["tel"]}}</span>
+        </div>
+        <div class="item">
+            <span>居住地</span>
+            <span>{{item["city"]}}</span>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

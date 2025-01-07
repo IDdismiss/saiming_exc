@@ -23,6 +23,7 @@
             <div class="item">
                 <div>ID</div>
                 <div>用户名</div>
+                <div>用户头像</div>
                 <div>性别</div>
                 <div>联系方式</div>
                 <div>租住地</div>
@@ -33,6 +34,9 @@
             <div class="item">
                 <div>{{item["id"]}}</div>
                 <div>{{item["username"]}}</div>
+                <div>
+                    <img src="{{item['avator']}}" alt="">
+                </div>
                 <div>{{item["gender"]}}</div>
                 <div>{{item["tel"]}}</div>
                 <div>{{item["city"]}}</div>
@@ -42,15 +46,13 @@
                     <div>用户</div>
                 {% endif %}
                 <div>
-                    <a href="#">查看</a>
-                    <a href="#">编辑</a>
-                    <a href="#">删除</a>
+                    <a href="/view?id={{item['id']}}">查看</a>
+                    <a href="/edit">编辑</a>
+                    <a href="/del">删除</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-
-
     </div>
 </body>
 </html>

@@ -8,12 +8,13 @@ import hashlib
 users_bp = Blueprint("users", __name__, template_folder="templates_users")
 
 # 设置允许的文件格式
-ALLOWED_EXTENSIONS =set(["png","jpg","JPG","PNG", "jpeg", "JPEG"])
+ALLOWED_EXTENSIONS = set(["png", "jpg", "JPG", "PNG", "jpeg", "JPEG"])
 
 
 # 封装一个方法，判断文件格式是否符合条件
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
 
 # 用户登录
 @users_bp.route("/login")
@@ -91,6 +92,9 @@ def doregister():
     upload_path = os.path.join(basepath, f'static/upload/{filename}')
     file.save(upload_path)
 
+    # 保存到数据库的路径
+    path = f"/static/upload/{filename}"
+
     # 和数据库交互
     if username and password:
 
@@ -102,19 +106,13 @@ def doregister():
         sql = f"""
             insert into users
             values(null, "{username}", "{new_password}", "{tel}", "{gender}", "{city}",
-             2, "", CURRENT_TIME, CURRENT_TIME, 1)
+             2, "{path}", CURRENT_TIME, CURRENT_TIME, 1)
         """
         db.insert_or_update_data(sql)
         return "注册成功"
     else:
         flash("用户或密码不能为空")
         return redirect("/register")
-
-
-# 退出登录
-@users_bp.route("/logout")
-def logout():
-    return render_template("logout.html")
 
 
 # 用户列表
@@ -142,3 +140,25 @@ def search():
     """
     users = db.query_data(sql)
     return render_template("userslist.html", users=users)
+
+
+# 用户信息查看
+@users_bp.route("/view")
+def view():
+    # 获取id
+    id = request.args.get("id")
+    # 和数据库交互，获取对应id的所有信息
+    sql = f"""
+        select * from users
+        where id = {id};
+    """
+    user = db.query_data(sql)
+    # user = data[0]
+    # 返回页面，并传输数据
+    return render_template("view.html", user=user)
+
+
+# 退出登录
+@users_bp.route("/logout")
+def logout():
+    return render_template("logout.html")
