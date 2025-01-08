@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/goods/list.css">
+</head>
+<body>
+    <div class="container">
+        <h1>商品列表</h1>
+        <div id="message">
+            {% for message in get_flashed_messages() %}
+            <div>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="header">
+            <div>
+                <a href="/goods/add">商品新增</a>
+            </div>
+            <div class="search">
+                <form action="/goods/search" method="POST">
+                    <input type="text" placeholder="请输入查询的商品名称" name="name">
+                    <input type="submit" value="查询">
+                </form>
+            </div>
+        </div>
+        <div class="main">
+            <div class="item">
+                <div>ID</div>
+                <div>商品名称</div>
+                <div>商品价格</div>
+                <div>商品单位</div>
+                <div>操作</div>
+            </div>
+            {% for item in goods %}
+            <div class="item">
+                <div>{{item["id"]}}</div>
+                <div>{{item["name"]}}</div>
+                <div>￥{{item["price"]}}</div>
+                <div>{{item["unit"]}}</div>
+                <div>
+                    <a href="/goods/view?id={{item['id']}}">查看</a>
+                    <a href="/goods/edit?id={{item['id']}}">编辑</a>
+                    <a href="/goods/del?id={{item['id']}}" class="btn_del">删除</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+<script src="/static/base.js"></script>
+<script>
+    var btns = document.getElementsByClassName("btn_del");
+    for (var i = 0; i < btns.length; i++)
+    {
+        btns[i].onclick = function()
+        {
+            var flag = window.confirm("确定删除吗？");
+            if (!flag)
+                return false;
+        }
+    }
+</script>
+</html>

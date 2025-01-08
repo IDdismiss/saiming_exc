@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>商品新增</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/goods/add.css">
 </head>
 <body>
-    <h1>商品新增</h1>
+    <div class="container">
+        <h1>商品新增</h1>
+        <div id="message">
+            {% for message in get_flashed_messages() %}
+            <div>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        <form action="/goods/doadd" method="POST">
+            <div class="item">
+                <label for="">商品名称</label>
+                <input type="text" name="name">
+            </div>
+            <div class="item">
+                <label for="">商品价格</label>
+                <input type="text" name="price">
+            </div>
+            <div class="item">
+                <label for="">商品单位</label>
+                <input type="text" name="unit">
+            </div>
+            <div class="item">
+                <input type="submit" value="新增">
+            </div>
+        </form>
+    </div>
 </body>
+<script src="/static/base.js"></script>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品信息编辑</title>
+    <link rel="stylesheet" href="/static/base.js">
+    <link rel="stylesheet" href="/static/goods/edit_good.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/goods/doedit?id={{good['id']}}" method="POST">
+            <div class="item">
+                <label for="">商品名称</label>
+                <input type="text" value="{{good['name']}}" disabled>
+            </div>
+            <div class="item">
+                <label for="">商品价格</label>
+                <input type="text" value="{{good['price']}}" name="price">
+            </div>
+            <div class="item">
+                <label for="">商品单位</label>
+                <input type="text" value="{{good['unit']}}" name="unit">
+            </div>
+            <div class="item">
+                <input type="submit" value="修改">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -136,7 +136,7 @@ def search():
     # 查询语句
     sql = f"""
         select * from users 
-        where username="{username}" and is_actived=1;
+        where username like "%{username}%" and is_actived=1;
     """
     users = db.query_data(sql)
     return render_template("userslist.html", users=users)
@@ -153,9 +153,54 @@ def view():
         where id = {id};
     """
     user = db.query_data(sql)
-    # user = data[0]
+    # user = user[0]
     # 返回页面，并传输数据
     return render_template("view.html", user=user)
+
+
+# 编辑用户信息
+@users_bp.route("/edit")
+def edit():
+    # 获取id
+    id = request.args.get("id")
+    # 和数据库交互，获取对应id的所有信息
+    sql = f"""
+        select * from users
+        where id = {id};
+    """
+    user = db.query_data(sql)
+    user = user[0]
+    return render_template("edit.html", user=user)
+
+
+@users_bp.route("/doedit", methods=["POST"])
+def doedit():
+    id = request.args.get("id")
+    username = request.form.get("username")
+    gender = request.form.get("gender")
+    tel = request.form.get("tel")
+
+    sql = f"""
+        update users set username="{username}", gender="{gender}",
+        tel="{tel}", update_time=CURRENT_TIME
+        where id = {id};
+    """
+    db.insert_or_update_data(sql)
+    return "修改成功"
+
+
+# 删除用户
+@users_bp.route("/del")
+def delbyid():
+    id = request.args.get("id")
+
+    sql = f"""
+        update users set is_actived = 2
+        where id = {id} ;
+    """
+    db.insert_or_update_data(sql)
+    flash("用户已删除")
+    return redirect("/userslist")
 
 
 # 退出登录

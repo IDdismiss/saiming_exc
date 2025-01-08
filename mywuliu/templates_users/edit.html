@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/users/edit.css">
+</head>
+<body>
+    <div class="container">
+        <h1>用户编辑</h1>
+        <form action="/doedit?id={{user['id']}}" method="POST">
+            <div class="item">
+                <label for="">用户名</label>
+                <input type="text" name="username" value="{{user['username']}}">
+            </div>
+            <div class="item">
+                <label for="">联系方式</label>
+                <input type="text" name="tel" value="{{user['tel']}}">
+            </div>
+            <div class="item">
+                {% if user['gender'] == '男' %}
+                    <label for="">男</label>
+                    <input type="radio" name="gender" value="男" checked>
+                    <label for="">女</label>
+                    <input type="radio" name="gender" value="女">
+                {% elif user['gender'] == '女' %}
+                    <label for="">男</label>
+                    <input type="radio" name="gender" value="男">
+                    <label for="">女</label>
+                    <input type="radio" name="gender" value="女" checked>
+                {% endif %}
+            </div>
+            <div class="item">
+                <input type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

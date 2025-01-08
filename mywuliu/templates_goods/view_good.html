@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品信息</title>
+    <link rel="stylesheet" href="/static/goods/view_good.css">
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+    <div class="container">
+        <h1>商品信息</h1>
+        <div class="item">
+            <span>商品名称</span>
+            <span>{{good["name"]}}</span>
+        </div>
+        <div class="item">
+            <span>商品价格</span>
+            <span>{{good["price"]}}</span>
+        </div>
+        <div class="item">
+            <span>商品单位</span>
+            <span>{{good["unit"]}}</span>
+        </div>
+        <div class="item">
+            <span>商品创建时间</span>
+            <span>{{good["create_time"]}}</span>
+        </div>
+        <div class="item">
+            <span>上次修改时间</span>
+            <span>{{good["update_time"]}}</span>
+        </div>
+    </div>
+</body>
+</html>

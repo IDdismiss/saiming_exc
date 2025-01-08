@@ -9,14 +9,3 @@
     display:flex;
     justify-content:space-between;
 }
-
-.avator img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-}
-
-.avator{
-    margin-top:20px;
-    margin-bottom:20px;
-}
