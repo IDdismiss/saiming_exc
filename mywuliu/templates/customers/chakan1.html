@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/customers/chakan1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>客户信息</h1>
+        <div class="item">
+            <span>姓名</span>
+            <span>{{customer["cname"]}}</span>
+        </div>
+        <div class="item">
+            <span>电话</span>
+            <span>{{customer["tel"]}}</span>
+        </div>
+        <div class="item">
+            <span>生日</span>
+            <span>{{customer["birthday"]}}</span>
+        </div>
+        <div class="item">
+            <span>性别</span>
+            <span>{{customer["gender"]}}</span>
+        </div>
+        <div class="item">
+            <span>地址</span>
+            <span>{{customer["address"]}}</span>
+        </div>
+        <div class="item">
+            <span>创建时间</span>
+            <span>{{customer["create_time"]}}</span>
+        </div>
+        <div class="item">
+            <span>更新时间</span>
+            <span>{{customer["update_time"]}}</span>
+        </div>
+    </div>
+</body>
+</html>

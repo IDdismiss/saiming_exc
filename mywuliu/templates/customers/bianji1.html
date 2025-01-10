@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/customers/bianji1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>编辑</h1>
+        <form action="/customers/do_bianji1?id={{customer['id']}}" method="post">
+            <div class="item">
+                <label for="">客户姓名</label>
+                <input type="text" name = "cname" value="{{customer['cname']}}">
+            </div>
+            <div class="item">
+                <label for="">电话</label>
+                <input type="text" name="tel" value="{{customer['tel']}}">
+            </div>
+            <div class="item">
+                <label for="">生日</label>
+                <input type="date" name = "birthday" value="{{customer['birthday']}}">
+            </div>
+            <div class="item">
+                <label for="">性别</label>
+                <input type="text" name = "gender" value="{{customer['gender']}}">
+            </div>
+            <div class="item">
+                <label for="">地址</label>
+                <input type="text" name = "address" value="{{customer['address']}}">
+            </div>
+            <div class="item">
+                <input type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
